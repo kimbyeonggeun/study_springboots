@@ -16,7 +16,7 @@
   <body>
     <div>/board/edit</div>
     <div class="container">
-      <form action="/board/list" method="post">
+      <form action="/board/edit" method="post">
         <div class="input-group">
           <label class="input-group-text" for="">제목</label>
           <input type="text" name="title" id="" class="form-control" value="손흥민 9경기 만에 득점포! 마스크 벗고 포효" />
