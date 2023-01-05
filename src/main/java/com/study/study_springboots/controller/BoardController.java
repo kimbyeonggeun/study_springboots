@@ -27,8 +27,13 @@ public class BoardController {
         return "/WEB-INF/views/board/view.jsp";
     }
 
-    @RequestMapping(value = "/board/edit")
+    @RequestMapping(value = "/board/edit", method = RequestMethod.GET)
     public String edit() {
         return "/WEB-INF/views/board/edit.jsp";
+    }
+
+    @RequestMapping(value = "/board/edit", method = RequestMethod.POST)
+    public String editPost() {
+        return "/WEB-INF/views/board/list.jsp";
     }
 }
