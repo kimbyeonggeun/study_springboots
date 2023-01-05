@@ -22,11 +22,17 @@
           <input type="text" name="title" id="" class="form-control" />
         </div>
         <div class="input-group mt-2">
+          <label class="input-group-text" for="">닉네임</label>
+          <input type="text" name="" id="" class="form-control" value="testID" />
+          <label class="input-group-text" for="">날짜</label>
+          <input type="date" name="" id="" class="form-control" />
+        </div>
+        <div class="input-group mt-2">
           <label for="" class="input-group-text">내용</label>
           <textarea name="" id="" cols="" rows="10" class="form-control" style="resize: none"></textarea>
         </div>
         <div>
-          <button class="btn btn-outline-info float-right mt-2">Submit</button>
+          <button class="btn btn-outline-info float-right mt-2">작성</button>
         </div>
       </form>
     </div>

@@ -14,6 +14,7 @@
     />
   </head>
   <body>
+    <div>board/view</div>
     <div class="container">
       <div class="fs-3 text-center">손흥민 9경기 만에 득점포! 마스크 벗고 포효</div>
       <div class="border rounded mt-2 bg-primary bg-opacity-10">

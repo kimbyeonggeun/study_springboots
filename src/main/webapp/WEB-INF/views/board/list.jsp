@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %> 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,19 +31,21 @@
           <tr>
             <th class="col-md-1">number</th>
             <th>Title</th>
+            <th class="col-md-1">ID</th>
+            <th class="col-md-1">Date</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
-            <td><a href="/board/view">Title_1</a></td>
+            <td><a href="/board/view">손흥민 9경기 만에 득점포! 마스크 벗고 포효</a></td>
+            <td>testID</td>
+            <td>2023.01.05</td>
           </tr>
         </tbody>
       </table>
       <a href="/board/form" class="btn btn-outline-info float-right" style="color: black">글쓰기</a>
     </div>
-    <br />
-    <div><a href="/board/form">/board/form BoardController form() /board/form.jsp</a></div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

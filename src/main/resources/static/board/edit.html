@@ -22,6 +22,12 @@
           <input type="text" name="title" id="" class="form-control" value="손흥민 9경기 만에 득점포! 마스크 벗고 포효" />
         </div>
         <div class="input-group mt-2">
+          <label class="input-group-text" for="">닉네임</label>
+          <input type="text" name="" id="" class="form-control" value="testID" />
+          <label class="input-group-text" for="">날짜</label>
+          <input type="date" name="" id="" class="form-control" />
+        </div>
+        <div class="input-group mt-2">
           <label for="" class="input-group-text">내용</label>
           <textarea name="" id="" cols="" rows="10" class="form-control" style="resize: none">
 답답한 수비 전술로 비판을 받은 콘테 감독은 또한번 스리백을 꺼내든 가운데, 손흥민은 왼쪽 공격수로 선발 출전해 토트넘의 공격을 이끌었습니다.
