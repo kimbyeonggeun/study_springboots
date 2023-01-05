@@ -17,7 +17,7 @@ public class BoardController {
         return "/WEB-INF/views/board/list.jsp";
     }
 
-    @RequestMapping(value = "/board/list")
+    @RequestMapping(value = { "/board/list", "/board" })
     public String list() {
         return "/WEB-INF/views/board/list.jsp";
     }
