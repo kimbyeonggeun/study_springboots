@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +24,7 @@
         </div>
         <div class="input-group mt-2">
           <label class="input-group-text" for="">닉네임</label>
-          <input type="text" name="" id="" class="form-control" value="testID" />
+          <input type="text" name="" id="" class="form-control"/>
           <label class="input-group-text" for="">날짜</label>
           <input type="date" name="" id="" class="form-control" />
         </div>

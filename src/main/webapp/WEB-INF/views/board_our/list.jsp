@@ -1,4 +1,6 @@
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> --%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +22,44 @@
         <div>With Request.getAttribute : <%= firstWithRequest %></div>
     </div>
     <div>
-        <%-- Spring에서 사용하는 방식(자동 타입캐스팅) --%>
+        <%-- Spring에서 사용하는 방식(자동 형변환) --%>
         <div>With Get Value on Spring : ${firstString}, ${boardList}</div>    
     </div>
+
+    <div>JSTL if</div>
+    <%-- @ if(){} --%>
+    <c:if test="${firstString eq 'firstValue'}">
+        <h3>Matching : String eq 'firstValue'</h3>
+    </c:if>
+    <c:set var="firstString" value="good"/>  <!--값 세팅-->
+    <c:if test="${firstString ne 'firstValue'}">
+        <h3>Not Matching : String eq 'good'</h3>
+    </c:if>
+
+    <c:set var="num_first" value="5"/>
+    <c:if test="${num_first gt 5}">
+        <h4>greater than 5</h4>
+    </c:if>
+
+    <div>JSTL switch</div>
+    <c:choose>
+        <c:when test="${num_first eq 3}">
+            num_first eq 3이다
+        </c:when>
+        <c:when test="${num_first eq 5}">
+            num_first eq 5다
+        </c:when>
+        <c:otherwise>
+            num_first 5보다 크다
+        </c:otherwise>
+    </c:choose>
+
+    <div>JSTL for</div>
+    <!-- begin-시작 / end-끝(포함) / items-반복할 리스트 / var-반복문 안에서 사용할 변수 -->
+    <c:forEach items="${boardList}" var="board" varStatus="status"> 
+        <div>${board.title}, ${board.userName}, ${status.count}, ${status.index},${status.first}</div>
+    </c:forEach>
+
     <%-- <div>set value with Code Block</div>
     <div><% int num=0; %> set : <%= num %></div>
 
@@ -42,7 +79,19 @@
             <tbody>
                 <tr>
                     <th scope=>1</th>
-                    <td><a href="/board_our/view">Hello</a></td>
+                    <td><a href="/board_our/view?uid=Hello">Hello</a></td>
+                    <td>Mark</td>
+                    <td>22.11.11</td>
+                </tr>
+                <tr>
+                    <th scope=>1</th>
+                    <td><a href="/board_our/view?uid=Otto">Otto</a></td>
+                    <td>Mark</td>
+                    <td>22.11.11</td>
+                </tr>
+                <tr>
+                    <th scope=>1</th>
+                    <td><a href="/board_our/view?uid=Jasco">Jasco</a></td>
                     <td>Mark</td>
                     <td>22.11.11</td>
                 </tr>

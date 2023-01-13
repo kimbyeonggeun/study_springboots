@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,17 +32,19 @@
           <tr>
             <th class="col-md-1">number</th>
             <th>Title</th>
-            <th class="col-md-1">ID</th>
-            <th class="col-md-1">Date</th>
+            <th class="col-md-2">ID</th>
+            <th class="col-md-2">Date</th>
           </tr>
         </thead>
         <tbody>
+        <c:forEach items="${boardList}" var="board" varStatus="status">
           <tr>
-            <td>1</td>
-            <td><a href="/board/view">손흥민 9경기 만에 득점포! 마스크 벗고 포효</a></td>
-            <td>testID</td>
-            <td>2023.01.05</td>
+            <td>${status.count}</td>
+            <td><a href="/board/view?uid=${board.title}">${board.title}</a></td>
+            <td>${board.userName}</td>
+            <td>${board.date}</td>
           </tr>
+        </c:forEach>
         </tbody>
       </table>
       <a href="/board/form" class="btn btn-outline-info float-right" style="color: black">글쓰기</a>
