@@ -101,4 +101,19 @@ public class DataInfors {
 
         return membersList;
     }
+
+    public BoardBean addData(HashMap<String, String> data) {
+        String title = data.get("title");
+        String content = data.get("content");
+        String userName = data.get("userName");
+        String date = data.get("date");
+
+        BoardBean boardBean = new BoardBean();
+        boardBean.setContent(content);
+        boardBean.setDate(date);
+        boardBean.setTitle(title);
+        boardBean.setUserName(userName);
+
+        return boardBean;
+    }
 }

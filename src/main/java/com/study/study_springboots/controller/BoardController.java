@@ -11,25 +11,25 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.study_springboots.beans.BoardBean;
 import com.study.study_springboots.service.DataInfors;
 
-@Controller
-@RequestMapping(value = "/board")
+// @Controller
+// @RequestMapping(value = "/board")
 public class BoardController {
 
-    @RequestMapping(value = "/form", method = RequestMethod.GET) // get형식으로
+    // @RequestMapping(value = "/form", method = RequestMethod.GET) // get형식으로
     // 들어올때
     public ModelAndView form(ModelAndView modelAndView) {
 
         return modelAndView;
     }
 
-    @RequestMapping(value = "/form", method = RequestMethod.POST) //
+    // @RequestMapping(value = "/form", method = RequestMethod.POST) //
     // post형식으로 들어올때
     public ModelAndView formPost(ModelAndView modelAndView) {
         modelAndView.setViewName("board/form");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/list")
+    // @RequestMapping(value = "/list")
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
         DataInfors dataInfors = new DataInfors();
@@ -39,7 +39,7 @@ public class BoardController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/view")
+    // @RequestMapping(value = "/view")
     public ModelAndView view(ModelAndView modelAndView, @RequestParam String uid) {
         DataInfors dataInfors = new DataInfors();
         BoardBean boardBean = dataInfors.getDataWithMemberBean(uid);
@@ -48,13 +48,13 @@ public class BoardController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    // @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView edit(ModelAndView modelAndView) {
         modelAndView.setViewName("board/edit");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    // @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editPost(ModelAndView modelAndView) {
         modelAndView.setViewName("board/edit");
         return modelAndView;
