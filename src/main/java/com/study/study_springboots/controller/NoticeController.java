@@ -13,11 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.study_springboots.beans.BoardBean;
 import com.study.study_springboots.service.DataInfors;
 
-@Controller
-@RequestMapping(value = "/notice")
+// @Controller
+// @RequestMapping(value = "/notice")
 public class NoticeController {
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    // @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView save(@RequestParam HashMap<String, String> params) {
         ModelAndView modelAndView = new ModelAndView();
         DataInfors dataInfors = new DataInfors();
@@ -27,7 +27,7 @@ public class NoticeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/", "list" })
+    // @RequestMapping(value = { "/", "list" })
     public ModelAndView list(ModelAndView modelAndView) {
         DataInfors dataInfors = new DataInfors();
         ArrayList<BoardBean> data = dataInfors.getDataListWithBoardBean();
@@ -36,7 +36,7 @@ public class NoticeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit/{title}", method = RequestMethod.GET)
+    // @RequestMapping(value = "/edit/{title}", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable String title, ModelAndView modelAndView) {
         DataInfors dataInfors = new DataInfors();
         BoardBean boardBean = dataInfors.getDataWithMemberBean(title);
