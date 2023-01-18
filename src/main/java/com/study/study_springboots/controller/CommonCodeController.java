@@ -7,8 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.study.study_springboots.dao.CommonCodeDao;
 
-@Controller
-@RequestMapping(value = "/commonCode")
+// @Controller
+// @RequestMapping(value = "/commonCode")
 public class CommonCodeController {
     @Autowired
     CommonCodeDao commonCodeDao;
