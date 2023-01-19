@@ -22,17 +22,17 @@ public class CommonCodeOurDao {
     }
 
     public Object update(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.update(sqlMapId, dataMap);
+        Object result = sqlSessionTemplate.update(sqlMapId, dataMap); // update() return값은 업데이트 수 int형이다 0이면 안됐다는 것
         return result;
     }
 
     public Object delete(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.delete(sqlMapId, dataMap);
+        Object result = sqlSessionTemplate.delete(sqlMapId, dataMap); // delete() return값은 삭제한 수 int형이다 0이면 안됐다는 것
         return result;
     }
 
     public Object insert(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.insert(sqlMapId, dataMap);
+        Object result = sqlSessionTemplate.insert(sqlMapId, dataMap); // insert() return값은 삽입한 수 int형이다 0이면 안됐다는 것
         return result;
     }
 }
