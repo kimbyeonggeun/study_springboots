@@ -11,17 +11,19 @@
 	<c:set var="form_action" value="insert"/>
 </c:if>
 
-<form action="/commonCode_our/${form_action}" method="post">
+<form action="/commonCodeOur/${form_action}" method="post">
 	<input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111">
+	<%-- 등록할때  --%>
 	<input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111">
-	
+	<%-- 수정할때 바뀜 --%>
+
 	<input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}"
 		>
 	<div class="form-group form-row">
 		<div class="col">
 			<label>코드 ID</label> <input class="form-control" type="text"
 				name="COMMON_CODE_ID" value="${resultMap.COMMON_CODE_ID}"
-				required ${form_action == "update" ? "readonly" : ""} />
+				required ${form_action == 'insert' ? '':'readonly'} />
 			<div class="invalid-tooltip">
 				
 			</div>

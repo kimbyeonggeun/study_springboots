@@ -51,4 +51,10 @@ public class CommonCodeOurService {
         result = this.getList(dataMap);
         return result;
     }
+
+    public Object insertAndGetList(Object dataMap) {
+        Object result = this.insertOne(dataMap);
+        result = this.getList(dataMap);
+        return result;
+    }
 }

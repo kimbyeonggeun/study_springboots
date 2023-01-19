@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.study.study_springboots.service.CommonCodeOurService;
 
 @Controller
-@RequestMapping(value = "/commonCode_our")
+@RequestMapping(value = "/commonCodeOur")
 public class CommonCodeOurController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class CommonCodeOurController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ModelAndView update(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         Object resultMap = commonCodeOurService.updateAndGetList(params);
-        modelAndView.addObject(resultMap);
+        modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }
@@ -50,7 +50,7 @@ public class CommonCodeOurController {
             ModelAndView modelAndView) {
         params.put("COMMON_CODE_ID", uniqueId);
         Object resultMap = commonCodeOurService.deleteAndGetList(params);
-        modelAndView.addObject(resultMap);
+        modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }
@@ -63,7 +63,7 @@ public class CommonCodeOurController {
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        commonCodeOurService.insertOne(params);
+        Object resultMap = commonCodeOurService.insertAndGetList(params);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }

@@ -6,11 +6,11 @@
 
 <div class = "container">
 
-<form action="/commonCode_our/form" method="get">
-						<button class="btn btn-info">
-							Form
-						</button>
-						</form>
+	<form action="/commonCodeOur/form" method="get">
+	<button class="btn btn-info">
+		Form
+	</button>
+	</form>
 
 	<table class="table table-striped table-hover table-bordered">
 		<thead>
@@ -28,7 +28,7 @@
 					<td class="text-center"><input type="checkbox" class="checkbox"
 						name="COMMON_CODE_ID"  /></td>
 					<td>
-						<form action="/commonCode_our/edit/${resultData.COMMON_CODE_ID}" method="get">
+						<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
 						<button class="btn btn-link viewPopup">
 							${resultData.COMMON_CODE_ID}
 						</button>
@@ -44,9 +44,9 @@
 						</div>
 					</td>
 					<td>
-						<form action="/commonCode_our/delete/${resultData.COMMON_CODE_ID}" method="post">
+						<form action="/commonCodeOur/delete/${resultData.COMMON_CODE_ID}" method="post">
 						<button class="btn outline-info">
-							${resultData.COMMON_CODE_ID}
+							Delete
 						</button>
 						</form>
 					</td>

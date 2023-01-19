@@ -12,7 +12,7 @@ public class CommonCodeOurDao {
     private SqlSessionTemplate sqlSessionTemplate;
 
     public Object getList(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.selectList(sqlMapId, dataMap);
+        Object result = sqlSessionTemplate.selectList(sqlMapId);
         return result;
     }
 
