@@ -6,6 +6,12 @@
 
 <div class = "container">
 
+<form action="/commonCode_our/form" method="get">
+						<button class="btn btn-info">
+							Form
+						</button>
+						</form>
+
 	<table class="table table-striped table-hover table-bordered">
 		<thead>
 			<tr class="text-center">
@@ -13,6 +19,7 @@
 				<th>코드 ID</th>
 				<th>코드명</th>
 				<th>부모 코드 ID</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,6 +42,13 @@
 								${resultData.PARENT_COMMON_CODE_ID}
 							</button>
 						</div>
+					</td>
+					<td>
+						<form action="/commonCode_our/delete/${resultData.COMMON_CODE_ID}" method="post">
+						<button class="btn outline-info">
+							${resultData.COMMON_CODE_ID}
+						</button>
+						</form>
 					</td>
 				</tr>
 			</c:forEach>

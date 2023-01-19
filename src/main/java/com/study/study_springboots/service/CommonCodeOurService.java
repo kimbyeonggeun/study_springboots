@@ -27,4 +27,28 @@ public class CommonCodeOurService {
         Object result = commonCodeOurDao.update(sqlMapId, dataMap);
         return result;
     }
+
+    public Object delete(Object dataMap) {
+        String sqlMapId = "CommonCodeOur.deleteByUID";
+        Object result = commonCodeOurDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertOne(Object dataMap) {
+        String sqlMapId = "CommonCodeOur.insertWithUID";
+        Object result = commonCodeOurDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object deleteAndGetList(Object dataMap) {
+        Object result = this.delete(dataMap);
+        result = this.getList(dataMap);
+        return result;
+    }
+
+    public Object updateAndGetList(Object dataMap) {
+        Object result = this.updateOne(dataMap);
+        result = this.getList(dataMap);
+        return result;
+    }
 }

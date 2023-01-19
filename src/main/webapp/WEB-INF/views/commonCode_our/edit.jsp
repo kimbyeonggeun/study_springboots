@@ -5,14 +5,23 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
 <div class="container">
-<form action="/CommonCodeOur/update" method="post">
+
+<c:set var="form_action" value="update"/>
+<c:if test="${empty resultMap}">
+	<c:set var="form_action" value="insert"/>
+</c:if>
+
+<form action="/commonCode_our/${form_action}" method="post">
+	<input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111">
+	<input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111">
+	
 	<input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}"
 		>
 	<div class="form-group form-row">
 		<div class="col">
 			<label>코드 ID</label> <input class="form-control" type="text"
 				name="COMMON_CODE_ID" value="${resultMap.COMMON_CODE_ID}"
-				placeholder="TEMPORORY_COMMONCODE" required readonly />
+				required ${form_action == "update" ? "readonly" : ""} />
 			<div class="invalid-tooltip">
 				
 			</div>
@@ -73,9 +82,9 @@
 		<div class="col">
 			<button class="btn btn-primary"
 				>
-				Update
+				${form_action}
 			</button>
-	</form>
+	
 			<button class="btn btn-outline-info"
 				>
 				List
@@ -87,4 +96,5 @@
 			</button> --%>
 		</div>
 	</div>
+	</form>
 </div>
