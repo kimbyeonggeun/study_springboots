@@ -57,4 +57,10 @@ public class CommonCodeOurService {
         result = this.getList(dataMap);
         return result;
     }
+
+    public Object deleteMulti(Object dataMap) {
+        String sqlMapId = "CommonCodeOur.deleteMultiByUIDs";
+        Object result = commonCodeOurDao.delete(sqlMapId, dataMap);
+        return result;
+    }
 }
