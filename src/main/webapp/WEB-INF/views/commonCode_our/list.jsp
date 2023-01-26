@@ -6,8 +6,11 @@
 
 <div class="container">
 
-<form action="/commonCodeOur/form"  methood="get">
+<form action="/commonCodeOur/form"  method="get">
 	<button class="btn btn-info">form</button>
+</form>
+<form action="/commonCodeOur/formMulti"  method="get">
+	<button class="btn btn-info">formMulti</button>
 </form>
 <form action="/commonCodeOur/deleteMulti"  method="post">
 	<button class="btn btn-info">delete Multi</button>

@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/resources/static/files/CAR.png
+src/main/resources/static/files/123.txt
