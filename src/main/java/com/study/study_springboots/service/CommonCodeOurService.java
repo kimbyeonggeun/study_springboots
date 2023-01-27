@@ -1,5 +1,8 @@
 package com.study.study_springboots.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +40,7 @@ public class CommonCodeOurService {
         String sqlMapId = "CommonCodeOur.selectByUID";
 
         Object result = commonCodeOurDao.getOne(sqlMapId, dataMap);
-        return result;
+        return result; // type = HashMap
     }
 
     public Object updateOne(Object dataMap) {
@@ -65,6 +68,16 @@ public class CommonCodeOurService {
         String sqlMapId = "CommonCodeOur.deleteMultiByUIDs";
 
         Object result = commonCodeOurDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getOneWithAttachFiles(Object dataMap) {
+        // Attach files ArrayList<Map>
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("attachFiles", attachFileService.getList(dataMap));
+
+        // 기존 값 보존을 위해 putAll 사용
+        result.putAll((Map<String, Object>) this.getOne(dataMap));
         return result;
     }
 }

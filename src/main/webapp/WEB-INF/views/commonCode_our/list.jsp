@@ -19,6 +19,7 @@
 			<tr class="text-center">
 				<th><input type="checkbox" id="selectall" /></th>
 				<th>코드 ID</th>
+				<th>코드 ID with Files</th>
 				<th>코드명</th>
 				<th>부모 코드 ID</th>
 				<th>Delete</th>
@@ -31,9 +32,16 @@
 					name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}"/></td>
 					<td>
 						<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
-						<button class="btn btn-link viewPopup">
-							${resultData.COMMON_CODE_ID}
-						</button>
+							<button class="btn btn-link viewPopup">
+								${resultData.COMMON_CODE_ID}
+							</button>
+						</form>
+					</td>
+					<td>
+						<form action="/commonCodeOur/editMulti/${resultData.COMMON_CODE_ID}" method="get">
+							<button class="btn btn-link viewPopup">
+								${resultData.COMMON_CODE_ID} Multi
+							</button>
 						</form>
 					</td>
 					<td>${resultData.NAME}</td>

@@ -26,7 +26,7 @@ public class AttachFileService {
     public Object getList(Object dataMap) {
         String sqlMapId = "AttachFile.selectListByUID";
         Object result = attachFileDao.getList(sqlMapId, dataMap);
-        return result;
+        return result; // return type - ArrayList<Map>
     }
 
     public Object getOne(Object dataMap) {
