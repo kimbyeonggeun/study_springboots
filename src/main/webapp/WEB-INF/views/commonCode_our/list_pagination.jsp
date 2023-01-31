@@ -8,19 +8,22 @@
 <%-- Form list --%>
 <div class="row">
 	<div class="col">
-		<form action="/commonCodeOur/form"  method="get">
-			<button class="btn btn-info">form</button>
+		<form action="/commonCodeOur/form" method="get">
+			<button class="btn btn-info"
+				>Form</button>
 		</form>
 	</div>
 	<div class="col">
-		<form action="/commonCodeOur/formMulti"  method="get">
-			<button class="btn btn-info">formMulti</button>
+		<form action="/commonCodeOur/formMulti" method="get">
+			<button class="btn btn-info"
+				>FormMulti</button>
 		</form>
 	</div>
 </div>
 <%-- pagination --%>
 <nav aria-label="Page navigation example">
-  <span>총 갯수 : </span>
+  <c:set var="_pagination" value="${resultMap.paginations}"/>
+  <span>총 갯수 : ${_pagination.totalCount}</span>
   <ul class="pagination">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
@@ -28,9 +31,10 @@
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+	<%-- for(int i=0; i>9; i++){} --%>
+	<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
+		<li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/${i}">${i}</a></li>
+	</c:forEach>
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
@@ -39,8 +43,8 @@
     </li>
   </ul>
 </nav>
-<form action="/commonCodeOur/deleteMulti"  method="post">
-	<button class="btn btn-info">delete Multi</button>
+<form action="/commonCodeOur/deleteMulti" method="post">
+<button class="btn btn-info">delete Multi</button>
 	<table class="table table-striped table-hover table-bordered">
 		<thead>
 			<tr class="text-center">
@@ -53,43 +57,43 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${resultMap}" var="resultData" varStatus="loop">
+			<c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
 				<tr>
-					<td class="text-center"><input type="checkbox" class="checkbox" 
-					name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}"/></td>
+					<td class="text-center">
+						<input type="checkbox" class="checkbox"
+						name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}" />
+					</td>
 					<td>
 						<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
-							<button class="btn btn-link viewPopup">
-								${resultData.COMMON_CODE_ID}
-							</button>
+							<button class="btn btn-link viewPopup"
+								>${resultData.COMMON_CODE_ID}</button>
 						</form>
 					</td>
 					<td>
 						<form action="/commonCodeOur/editMulti/${resultData.COMMON_CODE_ID}" method="get">
-							<button class="btn btn-link viewPopup">
-								${resultData.COMMON_CODE_ID} Multi
-							</button>
+							<button class="btn btn-link viewPopup"
+								>${resultData.COMMON_CODE_ID} Multi</button>
 						</form>
 					</td>
 					<td>${resultData.NAME}</td>
 					<td class="text-center">
 						<div class="btn-group">
-							<button class="btn btn-outline-info" name="PARENT_COMMONCODE_ID" >
+							<button class="btn btn-outline-info"
+								name="PARENT_COMMON_CODE_ID" >
 								${resultData.PARENT_COMMON_CODE_ID}
 							</button>
 						</div>
 					</td>
 					<td>
 						<form action="/commonCodeOur/delete/${resultData.COMMON_CODE_ID}" method="post">
-							<button class="btn btn-outline-info">
-								Delete
-							</button>
+							<button class="btn btn-outline-info"
+								>Delete</button>
 						</form>
 					</td>
+
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 </form>
 </div>
-<!-- /.table-responsive -->

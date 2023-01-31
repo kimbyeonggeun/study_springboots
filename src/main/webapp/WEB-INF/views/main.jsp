@@ -30,6 +30,7 @@
     <div><a href="/notice/list">/notice NoticeController list() /notice/list.jsp</a></div>
     <div><a href="board_our/jstlformats">jstl_formats.jsp</a></div>
     <div><a href="/commonCodeOur/list">commonCodeOur/list.jsp</a></div>
+    <div><a href="/commonCodeOur/listPagination/1">commonCodeOur/list_pagination.jsp</a></div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

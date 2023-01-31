@@ -65,10 +65,11 @@ public class CommonCodeOurController {
 
         while (fileNames.hasNext()) {
             String value = (String) params.get(fileNames.next());
-            System.out.print(value); // DB 저장이 되어있다.
+            System.out.print(value); // DB 저장이 되어 있다.
             if (value != null) {
-                // originalFilename과 있는지 여부 확인
+                // originalFilename 와 있는지 여부 확인
             }
+
         }
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
@@ -92,7 +93,6 @@ public class CommonCodeOurController {
             MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
             String originalFilename = multipartFile.getOriginalFilename();
 
-            // 방어코드(첫번째 파일이 존재하고 2번째 파일이 존재할때(사이즈가 0보다클때) 실행)
             if (originalFilename != null && multipartFile.getSize() > 0) {
                 String storePathFileName = storePath + originalFilename;
                 multipartFile.transferTo(new File(storePathFileName));
@@ -167,6 +167,18 @@ public class CommonCodeOurController {
         return modelAndView;
     }
 
+    @RequestMapping(value = { "/listPagination/{currentPage}" }, method = RequestMethod.GET)
+    public ModelAndView listPagination(@RequestParam Map<String, Object> params, @PathVariable String currentPage,
+            ModelAndView modelAndView) {
+        // xml(mapper)에 파라메터 넘김
+        params.put("currentPage", Integer.parseInt(currentPage));
+        params.put("pageScale", 10);
+        Object resultMap = commonCodeOurService.getListWithPagination(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("commonCode_our/list_pagination");
+        return modelAndView;
+    }
+
     @RequestMapping(value = { "/edit/{uniqueId}" }, method = RequestMethod.GET)
     public ModelAndView edit(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
             ModelAndView modelAndView) {
@@ -187,5 +199,4 @@ public class CommonCodeOurController {
         modelAndView.setViewName("commonCode_our/editMulti");
         return modelAndView;
     }
-
 }
