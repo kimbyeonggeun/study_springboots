@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <div class="container">
 <c:set var="form_action" value="update" />
@@ -59,9 +61,11 @@
 		<label>설명 <span class="text-muted">(<spring:message
 					code="text.option" />)
 		</span></label>
-		<textarea class="form-control" rows="3" name="DESCRIPTION"
+		<%-- <textarea class="form-control" rows="3" name="DESCRIPTION"
 			placeholder=""
-			${statusDisabled}>${resultMap.DESCRIPTION }</textarea>
+			${statusDisabled}>${resultMap.DESCRIPTION }</textarea> --%>
+			<div id="editor" class="form-control"></div>
+			<input type="hidden" name="DESCRIPTION" id="description" />
 	</div>
 </div>
 <div class="form-group form-row">
@@ -86,7 +90,7 @@
 </div>
 <div class="row justify-content-between">
 	<div class="col">
-		<button class="btn btn-primary"
+		<button class="btn btn-primary" id="submit-button"
 			>
 			${form_action}
 		</button>
@@ -101,5 +105,25 @@
 			
 		</button> --%>
 	</div>
+	<script>
+		var editor = new Quill('#editor', {
+			theme: 'snow'
+		});
+
+		// add content in Quill editor
+		editor.setContents(${resultMap.DESCRIPTION});
+		editor.disable();
+		editor.root.style.backgroundColor = '#f2f2f2';
+
+		let sumbitButton = document.querySelector('#submit-button');
+		sumbitButton.addEventListener("click", function(event){
+			let content = editor.getContents();
+			let description = document.querySelector("#description");
+			description.value = JSON.stringify(content);
+
+			let form = document.querySelector("#action-form");
+			form.submit();
+		});
+	</script>
 </div>
 </div>
