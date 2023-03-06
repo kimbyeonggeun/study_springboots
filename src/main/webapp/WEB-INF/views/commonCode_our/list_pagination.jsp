@@ -7,93 +7,90 @@
 <div class="container">
 <%-- Form list --%>
 <div class="row">
+	<div class="col-1">
+		<form action="/commonCodeOur/form"  methood="get">
+			<button class="btn btn-outline-info" type=""
+				>form</button>
+		</form>			
+	</div>	
 	<div class="col">
-		<form action="/commonCodeOur/form" method="get">
-			<button class="btn btn-info"
-				>Form</button>
-		</form>
-	</div>
-	<div class="col">
-		<form action="/commonCodeOur/formMulti" method="get">
-			<button class="btn btn-info"
-				>FormMulti</button>
-		</form>
+		<form action="/commonCodeOur/formMulti"  methood="get">
+			<button class="btn btn-outline-info" type=""
+				>formMulti</button>
+		</form>			
 	</div>
 </div>
 <%-- pagination --%>
-<nav aria-label="Page navigation example">
-  <c:set var="_pagination" value="${resultMap.paginations}"/>
+<nav aria-label="Page navigation example">	
+<c:set var="_pagination" value="${resultMap.paginations}" />
   <span>총 갯수 : ${_pagination.totalCount}</span>
   <ul class="pagination">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
       </a>
     </li>
-	<%-- for(int i=0; i>9; i++){} --%>
+	<%-- for(int i=0 ; i<9; i++) --%>
 	<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
 		<li class="page-item"><a class="page-link" href="/commonCodeOur/listPagination/${i}">${i}</a></li>
 	</c:forEach>
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
       </a>
     </li>
   </ul>
 </nav>
 <form action="/commonCodeOur/deleteMulti" method="post">
-<button class="btn btn-info">delete Multi</button>
-	<table class="table table-striped table-hover table-bordered">
-		<thead>
-			<tr class="text-center">
-				<th><input type="checkbox" id="selectall" /></th>
-				<th>코드 ID</th>
-				<th>코드 ID with Files</th>
-				<th>코드명</th>
-				<th>부모 코드 ID</th>
-				<th>Delete</th>
+    <button class="btn btn-info">deleteMulti</button>
+	<form></form>
+<table class="table table-striped table-hover table-bordered">
+	<thead>
+		<tr class="text-center">
+			<th><input type="checkbox" id="selectall" /></th>
+			<th>코드 ID</th>
+			<th>코드 ID with Files</th>
+			<th>코드명</th>
+			<th>부모 코드 ID</th>
+			<th>Delete</th>
+					</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
+			<tr>
+				<td class="text-center"><input type="checkbox" class="checkbox"
+					name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}"  /></td>
+				<td>
+					<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
+					<button class="btn btn-link viewPopup" type=""
+						>${resultData.COMMON_CODE_ID}</button>
+					</form>
+				</td>
+				<td>
+					<form action="/commonCodeOur/editMulti/${resultData.COMMON_CODE_ID}" method="get">
+					<button class="btn btn-link viewPopup" type=""
+						>${resultData.COMMON_CODE_ID}</button>
+					</form>
+				</td>
+				<td>${resultData.NAME}</td>
+				<td class="text-center">
+					<div class="btn-group">
+						<button class="btn btn-outline-info"
+							 name="PARENT_COMMONCODE_ID" >
+							${resultData.PARENT_COMMON_CODE_ID}
+						</button>
+					</div>
+				</td>
+				<td>
+					<form action="/commonCodeOur/delete/${resultData.COMMON_CODE_ID}" method="post">
+					<button class="btn btn-outline-info" type=""
+						>Delete</button>
+					</form>
+				</td>
 			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
-				<tr>
-					<td class="text-center">
-						<input type="checkbox" class="checkbox"
-						name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}" />
-					</td>
-					<td>
-						<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
-							<button class="btn btn-link viewPopup"
-								>${resultData.COMMON_CODE_ID}</button>
-						</form>
-					</td>
-					<td>
-						<form action="/commonCodeOur/editMulti/${resultData.COMMON_CODE_ID}" method="get">
-							<button class="btn btn-link viewPopup"
-								>${resultData.COMMON_CODE_ID} Multi</button>
-						</form>
-					</td>
-					<td>${resultData.NAME}</td>
-					<td class="text-center">
-						<div class="btn-group">
-							<button class="btn btn-outline-info"
-								name="PARENT_COMMON_CODE_ID" >
-								${resultData.PARENT_COMMON_CODE_ID}
-							</button>
-						</div>
-					</td>
-					<td>
-						<form action="/commonCodeOur/delete/${resultData.COMMON_CODE_ID}" method="post">
-							<button class="btn btn-outline-info"
-								>Delete</button>
-						</form>
-					</td>
-
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+		</c:forEach>
+	</tbody>
+</table>
 </form>
 </div>
+<!-- /.table-responsive -->
